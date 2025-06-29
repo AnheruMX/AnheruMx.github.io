@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donaciones - Huella Solidaria</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #116d91;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-left,
+    .nav-center,
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-center {
+      justify-content: center;
+      flex: 1;
+    }
+
+    .login-button {
+      background-color: white;
+      color: #116d91;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .login-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    header {
+      background-color: #116d91;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    #paypal-button-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Donaciones</h1>
+  </header>
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">Inicio</a>
+    </div>
+    <div class="nav-center">
+      <a href="quienessomos.html">¿Quiénes Somos?</a>
+      <a href="fichas.html">Fichas de Perritos</a>
+      <a href="eventos.html">Eventos</a>
+      <a href="donaciones.html">Donaciones</a>
+    </div>
+    <div class="nav-right">
+      <a href="#login" class="login-button">Iniciar Sesión</a>
+    </div>
+  </nav>
+
+
+
+  <main>
+  <p>
+    Cada donativo es una esperanza. Gracias a tu apoyo, ayudamos a más perritos y gatitos a tener una vida digna y amorosa. 🐶🐱💛
+  </p>
+
+  <div style="margin-top: 20px;">
+    <label for="donation-amount"><strong>Ingresa el monto que deseas donar (MXN):</strong></label><br>
+    <input type="number" id="donation-amount" min="10" placeholder="Ej. 100" style="padding: 10px; font-size: 1rem; margin-top: 10px; width: 200px;">
+  </div>
+
+  <div id="paypal-button-container" style="margin-top: 30px;"></div>
+</main>
+
+
+  <!-- PayPal JS SDK -->
+ <!-- <script src="https://www.paypal.com/sdk/js?client-id=AT5NlhQ9WR9fgljGt8qvVfnTUUprVY9g9xuNVKawm_G8LdwXfyEJwe_EL3N2aHfOuA1soE5XaTBdC--s&currency=MXN"></script>-->
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=MXN"></script>
+
+  <script>
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color: 'blue',
+      shape: 'pill',
+      label: 'donate'
+    },
+    createOrder: function(data, actions) {
+      const amount = document.getElementById("donation-amount").value;
+
+      if (!amount || parseFloat(amount) <= 0) {
+        alert("Por favor ingresa un monto válido.");
+        return;
+      }
+
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: amount
+          }
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('¡Gracias por tu donación, ' + details.payer.name.given_name + '! 💛');
+      });
+    }
+  }).render('#paypal-button-container');
+</script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¿Quiénes Somos? - Huella Solidaria</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #116d91;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+    position: sticky;
+    top: 0;
+    background-color: #116d91;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    z-index: 1000;
+    flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .nav-left,
+    .nav-center,
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-center {
+      justify-content: center;
+      flex: 1;
+    }
+
+    .login-button {
+      background-color: white;
+      color: #116d91;
+      padding: 6px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .login-button:hover {
+      background-color: #e0e0e0;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .toggle-btn {
+        background-color: #116d91;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+        }
+
+        .toggle-btn:hover {
+        background-color: #0d5470;
+        }
+
+        #info-content ul li {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>¿Quiénes somos?</h1>
+  </header>
+
+  <nav>
+    <div class="nav-left">
+        <a href="index.html">Inicio</a>
+    </div>
+    <div class="nav-center">
+        <a href="quienessomos.html">¿Quiénes somos?</a>
+        <a href="fichas.html">Fichas de Perritos</a>
+        <a href="eventos.html">Eventos</a>
+        <a href="donaciones.html">Donaciones</a>
+    </div>
+    <div class="nav-right">
+        <a href="#login" class="login-button">Iniciar Sesión</a>
+    </div>
+    </nav>
+
+
+
+  <main>
+    <p>
+      Este espacio fue creado por voluntarios para compartir información sobre animales de compañía, adopción, pérdidas, fomentar la adopción responsable, esterilización, así como orientación sobre el maltrato animal y la rehabilitación emocional 🐕🐈‍⬛ 🐾
+    </p>
+
+    <img src="img/quienessomos_content.jpg" alt="Perrito feliz" style="max-width: 100%; height: auto; margin-top: 20px; border-radius: 10px;" />
+
+    <div class="info-contacto" style="margin-top: 40px; text-align: center;">
+    <h2 style="color: #116d91;">Información de contacto</h2>
+    <ul style="list-style: none; padding-left: 0; display: inline-block; text-align: left; font-size: 1rem;">
+        <li>🏠 <strong>Dirección:</strong> Blvd Insurgentes S/N, Río Tijuana 3ra etapa, Tijuana BC</li>
+        <li>📍 <strong>Área de servicio:</strong> Tijuana, Península de Baja California, México</li>
+        <li>✉️ <strong>Correo electrónico:</strong> <a href="mailto:camtyvoluntarios@gmail.com">camtyvoluntarios@gmail.com</a></li>
+        <li>📷 <strong>Instagram:</strong> <a href="https://www.instagram.com/voluntariostj" target="_blank">@voluntariostj</a></li>
+    </ul>
+    </div>
+
+
+  </main>
+
+</body>
+</html>

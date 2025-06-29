@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Huella Solidaria</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-image: url('C:/Users/angel/Desktop/PaginaWeb/img/header.jpg'); /* Imagen local */
+      background-size: cover;
+      background-position: center;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      max-width: 90%;
+    }
+
+    nav {
+  position: sticky;
+  top: 0;
+  background-color: #116d91;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-center {
+  justify-content: center;
+  flex: 1;
+}
+
+.login-button {
+  background-color: white;
+  color: #116d91;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.login-button:hover {
+  background-color: #e0e0e0;
+}
+
+    main {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .carrusel-container {
+  width: 80%;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.carrusel {
+  display: flex;
+  transition: transform 1s ease-in-out;
+  width: 100%;
+}
+
+.carrusel img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+  height: auto;
+  max-height: 800px;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Huella Solidaria: Tecnología y Corazón por Nuestros Peluditos</h1>
+  </header>
+
+  <nav>
+  <div class="nav-left">
+    <a href="index.html">Inicio</a>
+  </div>
+  <div class="nav-center">
+    <a href="quienessomos.html">¿Quiénes somos?</a>
+    <a href="fichas.html">Fichas de Perritos</a>
+    <a href="eventos.html">Eventos</a>
+    <a href="donaciones.html">Donaciones</a>
+  </div>
+  <div class="nav-right">
+    <a href="#login" class="login-button">Iniciar Sesión</a>
+  </div>
+</nav>
+
+  <main>
+    <h2>¡Bienvenidos a Huella Solidaria!</h2>
+    <p>Conectamos tecnología y amor para mejorar la vida de nuestros peluditos.</p>
+
+    <!-- Carrusel -->
+    <div class="carrusel-container">
+      <div class="carrusel">
+        <img src="carrusel/01.jpg" class="active" alt="Perrito 1">
+        <img src="carrusel/02.jpg" alt="Perrito 2">
+        <img src="carrusel/03.jpg" alt="Perrito 3">
+        <img src="carrusel/04.jpg" alt="Perrito 4">
+        <img src="carrusel/05.jpg" alt="Perrito 5">
+        <img src="carrusel/06.jpg" alt="Perrito 6">
+        <img src="carrusel/07.jpg" alt="Perrito 7">
+        <img src="carrusel/08.jpg" alt="Perrito 8">
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const carrusel = document.querySelector('.carrusel');
+    const images = document.querySelectorAll('.carrusel img');
+    let index = 0;
+  
+    setInterval(() => {
+      index = (index + 1) % images.length;
+      carrusel.style.transform = `translateX(-${index * 100}%)`;
+    }, 8000);
+  </script>
+</body>
+</html>
