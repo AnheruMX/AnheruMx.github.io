@@ -11,60 +11,54 @@
       background-color: #f9f9f9;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: #116d91;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      z-index: 1000;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .nav-left,
-    .nav-center,
-    .nav-right {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-center {
-      justify-content: center;
-      flex: 1;
-    }
-
-    .login-button {
-      background-color: white;
-      color: #116d91;
-      padding: 6px 12px;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .login-button:hover {
-      background-color: #e0e0e0;
-    }
-
     header {
       background-color: #116d91;
       color: white;
       padding: 20px;
       text-align: center;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #116d91;
+      z-index: 1000;
+      padding: 10px 20px;
+    }
+
+    #menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #menu-toggle img {
+      width: 30px;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0 0 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
     .carrusel-container {
@@ -125,82 +119,74 @@
     .controls button:hover {
       background-color: #0d5470;
     }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #menu-toggle {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu.active {
+        display: flex;
+      }
+
+      .menu li a {
+        font-size: 1rem;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .ficha img {
+        max-height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .ficha img {
+        max-height: 200px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Fichas de Perritos</h1>
   </header>
+
   <nav>
-    <div class="nav-left">
-      <a href="index.html">Inicio</a>
-    </div>
-    <div class="nav-center">
-      <a href="quienessomos.html">¿Quiénes Somos?</a>
-      <a href="fichas.html">Fichas de Perritos</a>
-      <a href="eventos.html">Eventos</a>
-      <a href="donaciones.html">Donaciones</a>
-    </div>
-    <div class="nav-right">
-      <a href="#login" class="login-button">Iniciar Sesión</a>
-    </div>
+    <button id="menu-toggle">
+      <img src="img/menu_button.png" alt="Menú" />
+    </button>
+    <ul class="menu" id="main-menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienessomos.html">¿Quiénes Somos?</a></li>
+      <li><a href="fichas.html">Fichas de Perritos</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="donaciones.html">Donaciones</a></li>
+    </ul>
   </nav>
-
-
 
   <div class="carrusel-container">
     <div class="carrusel" id="carrusel">
-      <!-- 10 fichas de perritos -->
-      <div class="ficha">
-        <img src="fichas/perro1.jpg" alt="Perrito 1">
-        <h3>Luna</h3>
-        <p>Edad: 2 años<br>Muy cariñosa y tranquila, ideal para departamento.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro2.jpg" alt="Perrito 2">
-        <h3>Rocky</h3>
-        <p>Edad: 3 años<br>Activo, ideal para familias con niños.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro3.jpg" alt="Perrito 3">
-        <h3>Maya</h3>
-        <p>Edad: 1 año<br>Juguetona y obediente, vacunada y esterilizada.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro4.jpg" alt="Perrito 4">
-        <h3>Thor</h3>
-        <p>Edad: 4 años<br>Protector, ideal como guardián.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro5.jpg" alt="Perrito 5">
-        <h3>Canela</h3>
-        <p>Edad: 2.5 años<br>Muy dócil, se lleva bien con otros animales.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro6.jpg" alt="Perrito 6">
-        <h3>Bruno</h3>
-        <p>Edad: 3 años<br>Leal y obediente, le encanta correr.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro7.jpg" alt="Perrito 7">
-        <h3>Pelusa</h3>
-        <p>Edad: 6 meses<br>Cachorra juguetona, en proceso de entrenamiento.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro8.jpg" alt="Perrito 8">
-        <h3>Coco</h3>
-        <p>Edad: 5 años<br>Tranquilo y cariñoso, ya entrenado.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro9.jpg" alt="Perrito 9">
-        <h3>Lola</h3>
-        <p>Edad: 1.5 años<br>Le encanta jugar con otros perros.</p>
-      </div>
-      <div class="ficha">
-        <img src="fichas/perro10.jpg" alt="Perrito 10">
-        <h3>Max</h3>
-        <p>Edad: 2 años<br>Ideal para hogar con patio.</p>
-      </div>
+      <!-- 10 fichas -->
+      <div class="ficha"><img src="fichas/perro1.jpg" alt="Perrito 1"><h3>Luna</h3><p>Edad: 2 años<br>Cariñosa y tranquila.</p></div>
+      <div class="ficha"><img src="fichas/perro2.jpg" alt="Perrito 2"><h3>Rocky</h3><p>Edad: 3 años<br>Ideal para familias con niños.</p></div>
+      <div class="ficha"><img src="fichas/perro3.jpg" alt="Perrito 3"><h3>Maya</h3><p>Edad: 1 año<br>Obediente y esterilizada.</p></div>
+      <div class="ficha"><img src="fichas/perro4.jpg" alt="Perrito 4"><h3>Thor</h3><p>Edad: 4 años<br>Ideal como guardián.</p></div>
+      <div class="ficha"><img src="fichas/perro5.jpg" alt="Perrito 5"><h3>Canela</h3><p>Edad: 2.5 años<br>Dócil y sociable.</p></div>
+      <div class="ficha"><img src="fichas/perro6.jpg" alt="Perrito 6"><h3>Bruno</h3><p>Edad: 3 años<br>Leal y activo.</p></div>
+      <div class="ficha"><img src="fichas/perro7.jpg" alt="Perrito 7"><h3>Pelusa</h3><p>Edad: 6 meses<br>En entrenamiento.</p></div>
+      <div class="ficha"><img src="fichas/perro8.jpg" alt="Perrito 8"><h3>Coco</h3><p>Edad: 5 años<br>Tranquilo y cariñoso.</p></div>
+      <div class="ficha"><img src="fichas/perro9.jpg" alt="Perrito 9"><h3>Lola</h3><p>Edad: 1.5 años<br>Juguetona con otros perros.</p></div>
+      <div class="ficha"><img src="fichas/perro10.jpg" alt="Perrito 10"><h3>Max</h3><p>Edad: 2 años<br>Ideal para hogar con patio.</p></div>
     </div>
   </div>
 
@@ -227,6 +213,13 @@
       index = (index - 1 + total) % total;
       updateCarrusel();
     }
+
+    // Menú toggle
+    const toggleButton = document.getElementById('menu-toggle');
+    const menu = document.getElementById('main-menu');
+    toggleButton.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
   </script>
 </body>
 </html>

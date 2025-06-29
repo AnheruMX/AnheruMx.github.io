@@ -22,62 +22,57 @@
       align-items: center;
       color: white;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 0 10px;
     }
 
     header h1 {
       font-size: 2.5rem;
-      text-align: center;
       max-width: 90%;
     }
 
     nav {
-  position: sticky;
-  top: 0;
-  background-color: #116d91;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  z-index: 1000;
-  flex-wrap: wrap;
-}
+      position: sticky;
+      top: 0;
+      background-color: #116d91;
+      z-index: 1000;
+      padding: 10px 20px;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: bold;
-  font-size: 1rem;
-}
+    #menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
 
-nav a:hover {
-  text-decoration: underline;
-}
+    #menu-toggle img {
+      width: 30px;
+    }
 
-.nav-left,
-.nav-center,
-.nav-right {
-  display: flex;
-  align-items: center;
-}
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0 0 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.nav-center {
-  justify-content: center;
-  flex: 1;
-}
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
 
-.login-button {
-  background-color: white;
-  color: #116d91;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.login-button:hover {
-  background-color: #e0e0e0;
-}
+    .menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
 
     main {
       padding: 10px;
@@ -85,28 +80,76 @@ nav a:hover {
     }
 
     .carrusel-container {
-  width: 80%;
-  margin: 30px auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  position: relative;
-}
+      width: 90%;
+      max-width: 900px;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      position: relative;
+    }
 
-.carrusel {
-  display: flex;
-  transition: transform 1s ease-in-out;
-  width: 100%;
-}
+    .carrusel {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      width: 100%;
+    }
 
-.carrusel img {
-  width: 100%;
-  flex-shrink: 0;
-  object-fit: cover;
-  height: auto;
-  max-height: 800px;
-}
+    .carrusel img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+      height: auto;
+      max-height: 800px;
+    }
 
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      #menu-toggle {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu.active {
+        display: flex;
+      }
+
+      .menu li a {
+        font-size: 1rem;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .carrusel img {
+        max-height: 400px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        height: 220px;
+        padding: 0 5px;
+      }
+
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      .carrusel img {
+        max-height: 300px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -115,19 +158,17 @@ nav a:hover {
   </header>
 
   <nav>
-  <div class="nav-left">
-    <a href="index.html">Inicio</a>
-  </div>
-  <div class="nav-center">
-    <a href="quienessomos.html">¿Quiénes somos?</a>
-    <a href="fichas.html">Fichas de Perritos</a>
-    <a href="eventos.html">Eventos</a>
-    <a href="donaciones.html">Donaciones</a>
-  </div>
-  <div class="nav-right">
-    <a href="#login" class="login-button">Iniciar Sesión</a>
-  </div>
-</nav>
+    <button id="menu-toggle">
+      <img src="img/menu_button.png" alt="Menú" />
+    </button>
+    <ul class="menu" id="main-menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienessomos.html">¿Quiénes somos?</a></li>
+      <li><a href="fichas.html">Fichas de Perritos</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="donaciones.html">Donaciones</a></li>
+    </ul>
+  </nav>
 
   <main>
     <h2>¡Bienvenidos a Huella Solidaria!</h2>
@@ -149,14 +190,23 @@ nav a:hover {
   </main>
 
   <script>
+    // Carrusel automático
     const carrusel = document.querySelector('.carrusel');
     const images = document.querySelectorAll('.carrusel img');
     let index = 0;
-  
+
     setInterval(() => {
       index = (index + 1) % images.length;
       carrusel.style.transform = `translateX(-${index * 100}%)`;
     }, 8000);
+
+    // Menú toggle
+    const toggleButton = document.getElementById('menu-toggle');
+    const menu = document.getElementById('main-menu');
+
+    toggleButton.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
   </script>
 </body>
 </html>

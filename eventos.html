@@ -12,60 +12,54 @@
       background-color: #f9f9f9;
     }
 
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: #116d91;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 40px;
-      z-index: 1000;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .nav-left,
-    .nav-center,
-    .nav-right {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-center {
-      justify-content: center;
-      flex: 1;
-    }
-
-    .login-button {
-      background-color: white;
-      color: #116d91;
-      padding: 6px 12px;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .login-button:hover {
-      background-color: #e0e0e0;
-    }
-
     header {
       background-color: #116d91;
       color: white;
       padding: 20px;
       text-align: center;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #116d91;
+      z-index: 1000;
+      padding: 10px 20px;
+    }
+
+    #menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    #menu-toggle img {
+      width: 30px;
+    }
+
+    .menu {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0 0 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
     }
 
     .evento {
@@ -93,29 +87,52 @@
       font-size: 1.1rem;
       line-height: 1.6;
     }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #menu-toggle {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .menu.active {
+        display: flex;
+      }
+
+      .menu li a {
+        font-size: 1rem;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Próximos Eventos</h1>
   </header>
+
   <nav>
-    <div class="nav-left">
-      <a href="index.html">Inicio</a>
-    </div>
-    <div class="nav-center">
-      <a href="quienessomos.html">¿Quiénes Somos?</a>
-      <a href="fichas.html">Fichas de Perritos</a>
-      <a href="eventos.html">Eventos</a>
-      <a href="donaciones.html">Donaciones</a>
-    </div>
-    <div class="nav-right">
-      <a href="#login" class="login-button">Iniciar Sesión</a>
-    </div>
+    <button id="menu-toggle">
+      <img src="img/menu_button.png" alt="Menú" />
+    </button>
+    <ul class="menu" id="main-menu">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="quienessomos.html">¿Quiénes Somos?</a></li>
+      <li><a href="fichas.html">Fichas de Perritos</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="donaciones.html">Donaciones</a></li>
+    </ul>
   </nav>
 
-
-
+  <!-- Evento 1 -->
   <section class="evento">
     <img src="img/evento_adopcion.png" alt="Evento de adopción y emprendimiento">
     <h2>Evento de adopción, bienestar animal y emprendimiento</h2>
@@ -129,31 +146,39 @@
     </p>
   </section>
 
+  <!-- Evento 2 -->
   <section class="evento">
     <img src="img/evento_ohana.png" alt="Evento Ohana Perruna">
     <h2>Ohana Perruna – Aniversario Dogban TJ</h2>
     <p>
-        Ohana significa familia, y ellos son parte de la nuestra 💛🐶🐱<br><br>
-        Por eso, este <strong>sábado 29 de junio</strong> de <strong>2:00 p.m. a 7:00 p.m.</strong>, queremos celebrar <strong>2 años de aventuras perrunas</strong> contigo 🐾
+      Ohana significa familia, y ellos son parte de la nuestra 💛🐶🐱<br><br>
+      Por eso, este <strong>sábado 29 de junio</strong> de <strong>2:00 p.m. a 7:00 p.m.</strong>, queremos celebrar <strong>2 años de aventuras perrunas</strong> contigo 🐾
     </p>
     <p>
-        Esta vez, el festejo tiene un corazón más grande:<br>
-        Estaremos recolectando donativos en beneficio de <strong>Voluntarios TJ</strong> y <strong>Kukus A.C.</strong> 💚
+      Esta vez, el festejo tiene un corazón más grande:<br>
+      Estaremos recolectando donativos en beneficio de <strong>Voluntarios TJ</strong> y <strong>Kukus A.C.</strong> 💚
     </p>
     <p>
-        🎁 Habrá regalitos para quienes traigan donativo o realicen compra<br>
-        📸 Spot de fotos para que presumas tu mejor look tropical<br>
-        🎉 Mucho ambiente, comunidad y amor perruno
+      🎁 Habrá regalitos para quienes traigan donativo o realicen compra<br>
+      📸 Spot de fotos para que presumas tu mejor look tropical<br>
+      🎉 Mucho ambiente, comunidad y amor perruno
     </p>
     <p>
-        ✨ <strong>Entrada libre</strong><br>
-        📍 <strong>En The Dogban TJ</strong>
+      ✨ <strong>Entrada libre</strong><br>
+      📍 <strong>En The Dogban TJ</strong>
     </p>
     <p>
-        🌴 ¡Ponte tu mejor outfit hawaiano y ven a ser parte de esta gran familia!
+      🌴 ¡Ponte tu mejor outfit hawaiano y ven a ser parte de esta gran familia!
     </p>
-    </section>
+  </section>
 
-
+  <script>
+    // Menú toggle para móviles
+    const toggleButton = document.getElementById('menu-toggle');
+    const menu = document.getElementById('main-menu');
+    toggleButton.addEventListener('click', () => {
+      menu.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
