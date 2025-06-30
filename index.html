@@ -3,38 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Huella Solidaria</title>
+  <title>Voluntarios TJ</title>
   <style>
+    :root {
+      --primary: #623baf;
+      --secondary: #f9f9f9;
+      --accent: #fff;
+      --gradient: linear-gradient(to right, #b494f4, #7e75f3, #5c63dd);
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
+      font-family: 'Arial', sans-serif;
+      background: var(--secondary);
+      color: #333;
     }
 
     header {
-      background-image: url('img/header.jpg');
-      background-size: cover;
-      background-position: center;
+      background: var(--gradient);
       height: 300px;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+      justify-content: center;
       text-align: center;
-      padding: 0 10px;
+      color: var(--accent);
+      padding: 10px;
+      position: relative;
+    }
+
+    .logo-frame {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+
+    .logo-frame img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      max-width: 90%;
+      font-size: 2.3rem;
+      margin: 0;
     }
 
     nav {
+      background-color: var(--primary);
       position: sticky;
       top: 0;
-      background-color: #116d91;
       z-index: 1000;
       padding: 10px 20px;
     }
@@ -53,7 +78,7 @@
     .menu {
       list-style: none;
       margin: 0;
-      padding: 10px 0 0 0;
+      padding: 0;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -75,8 +100,12 @@
     }
 
     main {
-      padding: 10px;
+      padding: 20px;
       text-align: center;
+    }
+
+    main h2 {
+      color: var(--primary);
     }
 
     .carrusel-container {
@@ -84,7 +113,7 @@
       max-width: 900px;
       margin: 30px auto;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       position: relative;
     }
@@ -100,7 +129,7 @@
       flex-shrink: 0;
       object-fit: cover;
       height: auto;
-      max-height: 800px;
+      max-height: 600px;
     }
 
     .controls {
@@ -121,11 +150,11 @@
       cursor: pointer;
       pointer-events: auto;
       user-select: none;
-      transition: opacity 0.3s;
+      padding: 0 15px;
     }
 
     .controls .arrow:hover {
-      opacity: 0.7;
+      opacity: 0.6;
     }
 
     @media (max-width: 768px) {
@@ -142,6 +171,7 @@
         display: none;
         flex-direction: column;
         align-items: center;
+        padding-top: 10px;
       }
 
       .menu.active {
@@ -162,12 +192,17 @@
 
     @media (max-width: 480px) {
       header {
-        height: 220px;
+        height: 240px;
         padding: 0 5px;
       }
 
       header h1 {
         font-size: 1.3rem;
+      }
+
+      .logo-frame {
+        width: 100px;
+        height: 100px;
       }
 
       .carrusel img {
@@ -178,7 +213,10 @@
 </head>
 <body>
   <header>
-    <h1>Huella Solidaria: Tecnología y Corazón por Nuestros Peluditos</h1>
+    <div class="logo-frame">
+      <img src="img/voluntarios_tj.jpg" alt="Logo Voluntarios TJ">
+    </div>
+    <h1>Voluntarios TJ</h1>
   </header>
 
   <nav>
@@ -198,7 +236,6 @@
     <h2>¡Bienvenidos a Huella Solidaria!</h2>
     <p>Conectamos tecnología y amor para mejorar la vida de nuestros peluditos.</p>
 
-    <!-- Carrusel -->
     <div class="carrusel-container">
       <div class="carrusel" id="carrusel">
         <img src="carrusel/01.jpg" alt="Perrito 1">
@@ -252,7 +289,6 @@
       resetInterval();
     });
 
-    // Menú hamburguesa
     const toggleButton = document.getElementById('menu-toggle');
     const menu = document.getElementById('main-menu');
 
