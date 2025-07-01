@@ -270,7 +270,7 @@
       updateCarrusel();
     }
 
-    let interval = setInterval(next, 5000);
+    let interval = setInterval(next, 3000);
 
     document.querySelector('.arrow.left').addEventListener('click', () => {
       prev();
@@ -284,7 +284,7 @@
 
     function resetInterval() {
       clearInterval(interval);
-      interval = setInterval(next, 5000);
+      interval = setInterval(next, 3000);
     }
 
     // Menú hamburguesa
