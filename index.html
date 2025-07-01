@@ -121,12 +121,11 @@
     .carrusel {
       display: flex;
       transition: transform 1s ease-in-out;
-      width: 100%;
     }
 
     .carrusel img {
       width: 100%;
-      flex-shrink: 0;
+      flex: 0 0 100%;
       object-fit: cover;
       height: auto;
       max-height: 600px;
@@ -233,7 +232,7 @@
   </nav>
 
   <main>
-    <h2>¡Bienvenidos a Huella Solidaria!</h2>
+    <h2>¡Bienvenidos a Voluntarios TJ!</h2>
     <p>Conectamos tecnología y amor para mejorar la vida de nuestros peluditos.</p>
 
     <div class="carrusel-container">
@@ -258,7 +257,6 @@
     const carrusel = document.getElementById('carrusel');
     const images = document.querySelectorAll('.carrusel img');
     let index = 0;
-    let interval = setInterval(next, 5000);
 
     function updateCarrusel() {
       carrusel.style.transform = `translateX(-${index * 100}%)`;
@@ -279,6 +277,8 @@
       interval = setInterval(next, 5000);
     }
 
+    let interval = setInterval(next, 5000);
+
     document.querySelector('.arrow.left').addEventListener('click', () => {
       prev();
       resetInterval();
@@ -291,7 +291,6 @@
 
     const toggleButton = document.getElementById('menu-toggle');
     const menu = document.getElementById('main-menu');
-
     toggleButton.addEventListener('click', () => {
       menu.classList.toggle('active');
     });
